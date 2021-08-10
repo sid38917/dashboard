@@ -22,7 +22,11 @@ src="https://i.ibb.co/WGc3pyN/unamed-3.png"
 height={200}
 src="https://i.ibb.co/5ThYzG9/unamed-2.png"
 />
-<Button style={{ width: '200px', margin: '5px', backgroundColor: 'black', color: 'white' }}>Shirts</Button>
+<Button style={{ width: '200px', margin: '5px', backgroundColor: 'black', color: 'white' }}>
+                        <Link to="/custom/shirts">
+                            Shirts
+                        </Link>
+                    </Button>
 </Col>
 <Col span={6} justify="center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 <Image

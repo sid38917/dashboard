@@ -4,19 +4,20 @@ import {Fabric, Customize} from '../components'
 import {Row, Col, Button} from 'antd'
 
 
-const CustomPage = () => {
+const CustomPage = (props) => {
     const [active, setActive] = useState('fabric')
-    const {params} = props;
+    const params = useParams();
+   // const {params} = props;
 
     function activeComponent() {
         if(active === "fabric") {
             return <Fabric/>
 
         } else if(active === 'customize') {
-            return <Customize />
+            return <Customize params = {params}/>
         }
         
-    }
+    } 
 
     function handleActive(status) {
         if(status === 'next') {

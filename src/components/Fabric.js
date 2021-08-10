@@ -1,45 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Row, Col, Image, Card, Button, Divider} from 'antd'
+import data from '../data/listFabric'
 const Fabric = () => {
+    const [selectedItem, setSelectedItem] = useState()
+        
 
-        const data = [
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            },
-            {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            }
-            ,      {
-                image: "https://i.ibb.co/Mcrgn4G/unnamed-1.png",
-                name: "fabric Name"
-            }
-        ]
+        const selectItem = (item) => {
+            setSelectedItem(item);
+
+        }
+
+        function borderColor(image) {
+            
+            if(!selectedItem) return ""
+
+                if(image.name === selectedItem.name) {
+                    return "red"
+                } else {
+                    return "";
+                }
+            
+        }
 
         return (
             <>
@@ -52,10 +33,14 @@ const Fabric = () => {
                 {
                     data.map((item) => {
                         return(<Col>
-                            <div>
+                             <Card 
+                    style={{flexDirection: 'column', margin: '5px', width: '200px', cursor: 'pointer', padding: 5, borderColor: borderColor(item)}}
+                    onClick = {() => setSelectedItem(item)}
+                    >
                         <Image src = {item.image} />
                         <h2>{item.name}</h2>
-                        </div>
+                        </Card>
+                        
                             </Col>)
                         
                     })
@@ -66,6 +51,10 @@ const Fabric = () => {
         )
     
        
+}
+
+function selectedItem(image) {
+
 }
 
 export default Fabric
